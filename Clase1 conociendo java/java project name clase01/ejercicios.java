@@ -6,7 +6,7 @@ public class ejercicios {
     private static int numero;
 
     public static void main(String[] args) {
-        ejercicio10();
+        ejercicio11();
     }
     private static void ejercicio1() {
         var sc = new Scanner(System.in);
@@ -154,6 +154,33 @@ public class ejercicios {
         }
 
     private static void ejercicio11() {
+        var sc = new Scanner(System.in);
+        System.out.print("ingrese su sexo (H/M): ");
+        var sexo = sc.nextLine();
+        System.out.print("ingrese su altura: ");
+        var altura = sc.nextInt();
+        sc.close();
+
+        switch (sexo) {
+            case "H":
+                var pesoh = altura-110;
+                System.out.printf("el peso ideal es %s kilos", pesoh);
+                break;
+            case "M":
+                var pesom = altura- 100;
+                System.out.printf("el peso ideal es %s kilos", pesom);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private static void ejercicio12() {
+        var sc = new Scanner(System.in);
+        System.out.print("ingrese su numero: ");
+        var numero = sc.nextInt();
+        sc.close();
+
         
     }
 }
