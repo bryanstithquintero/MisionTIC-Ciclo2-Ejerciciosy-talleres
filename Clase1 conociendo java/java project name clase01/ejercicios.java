@@ -6,7 +6,7 @@ public class ejercicios {
     private static int numero;
 
     public static void main(String[] args) {
-        ejercicio11();
+        ejercicio12();
     }
     private static void ejercicio1() {
         var sc = new Scanner(System.in);
@@ -18,21 +18,17 @@ public class ejercicios {
 
     private static void ejercicio2() {
         var sc = new Scanner(System.in);
+        var numerodigitos = 0;
         System.out.print("ingrese un numero: ");
-        var numero = sc.nextInt();
+        var numero = sc.nextLong();
         sc.close();
         
-        if (numero >= 0 && numero <10) {
-            System.out.println("el numero tiene un digito");
-        } 
-        else if (numero >=10 && numero <100) {
-            System.out.println("el numero tiene dos digitos");
-        }
-        else if (numero >=100 && numero <1000) {
-            System.out.println("el numero tiene tres digitos");
-        } else {
-            System.out.println("el numero tiene cuatro o mas digitos");
-        }
+        do {
+            numero /= 10;
+            numerodigitos++;
+        } while (numero > 0);
+        
+        System.out.printf("el numero ingresado tiene %d digitos", numerodigitos);
     }
 
     private static void ejercicio3() {
@@ -177,10 +173,28 @@ public class ejercicios {
 
     private static void ejercicio12() {
         var sc = new Scanner(System.in);
-        System.out.print("ingrese su numero: ");
-        var numero = sc.nextInt();
+        var primo = true;
+        String respuesta;
+        do {
+            System.out.print("ingrese su numero: ");
+            int num = sc.nextInt();
+            for (int ind = 2; ind < num; ind++) {
+                if (num % ind == 0) {
+                    primo = false;
+                }
+            }
+            if (primo == true) {
+                System.out.println(num  + " es primo");
+            } else {
+                System.out.println(num + " no es primo");
+            }
+            System.out.println("quieres continuar? S/N");
+            respuesta = sc.next();
+        } while (respuesta.equals("S"));
         sc.close();
+    }
 
+    private static void ejercicio13() {
         
     }
 }
