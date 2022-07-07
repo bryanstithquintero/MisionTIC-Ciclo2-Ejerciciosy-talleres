@@ -6,7 +6,7 @@ public class ejercicios {
     private static int numero;
 
     public static void main(String[] args) {
-        ejercicio12();
+        ejercicio15();
     }
     private static void ejercicio1() {
         var sc = new Scanner(System.in);
@@ -149,6 +149,7 @@ public class ejercicios {
         }
         }
 
+    
     private static void ejercicio11() {
         var sc = new Scanner(System.in);
         System.out.print("ingrese su sexo (H/M): ");
@@ -196,5 +197,62 @@ public class ejercicios {
 
     private static void ejercicio13() {
         
+    }
+
+    private static void ejercicio14() {
+        // primero se piden los datos al usuario, con scanner 
+        var sc = new Scanner(System.in);
+        System.out.println("Escriba su nombre completo: ");
+        var nombre = sc.nextLine();
+        System.out.println("Escriba su edad: ");
+        var edad =sc.nextInt();
+        System.out.println("Escriba su salario: ");
+        var salario = sc.nextFloat();
+
+        //se hace condicional para la bonificacion de acuerdo a la edad
+
+        if (edad < 18) {
+            System.out.println("no tiene edad para trabajar");
+        }else if (edad >= 18 && edad <= 29){
+            var sueldo = salario;
+            System.out.printf("el empleado %s de edad %d tiene un salario de %s", nombre,edad,Math.round(sueldo));
+        } else if (edad >= 30 && edad <= 50){
+            var bonificacion = 0.05;
+            var sueldo = (salario * bonificacion) + salario;
+            System.out.printf("el empleado %s de edad %d tiene un salario de %s", nombre,edad,Math.round(sueldo));
+        } else if (edad >= 30 && edad <= 50){
+            var bonificacion = 0.10;
+            var sueldo = (salario * bonificacion) + salario;
+            System.out.printf("el empleado %s de edad %d tiene un salario de %s", nombre,edad,Math.round(sueldo));
+        }  else if (edad >= 60){
+            var bonificacion = 0.15;
+            var sueldo = (salario * bonificacion) + salario;
+            System.out.printf("el empleado %s de edad %d tiene un salario de %s", nombre,edad,Math.round(sueldo) );
+        } 
+
+        sc.close();
+    }
+
+    private static void ejercicio15() {
+        var sc = new Scanner(System.in);
+        int numero,fibo1,fibo2;
+
+        do {
+            System.out.println("ingrese el numero: ");
+            numero = sc.nextInt();
+        } while (numero <= 1);
+        
+        System.out.println("los " + numero +" primeros terminos de la serie fibonacci son: ");
+        fibo1 = 1;
+        fibo2 = 2;
+
+        System.out.println(fibo1 + " ");
+        for (int i = 2; i <= numero; i++) {
+            System.out.println(fibo2 + "");
+            fibo2 = fibo1 + fibo2;
+            fibo1 = fibo2 - fibo1;
+        }
+        System.out.println();
+    sc.close();
     }
 }
